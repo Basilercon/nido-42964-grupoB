@@ -13,10 +13,10 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 | Integrante | Usuario de GitHub | Rol | Requisitos |
 |---|---|---|---|
 | Flores Castillo Basiler Emanuel | @Basilercon | Lider (scrum) | Tablero, actas, integracion de PR |
-| Fernandez Ramirez Patrick Michael | `<usuario>` | Dev · arbol | R1, R2 |
-| Ticona Pacco Alex Royer | `<usuario>` | Dev · grafo | R3, R4 |
-| Machaca Apaza Edson Javier | `<usuario>` | Dev · alcance y archivo | R5, R6 |
-| Juan Doego Quispe Mollenido | `<usuario>` | QA y documentacion | R7, pruebas, informe |
+| Fernandez Ramirez Patrick Michael | @72672623-cmyk | Dev · arbol | R1, R2 |
+| Ticona Pacco Alex Royer | @Royer20061 | Dev · grafo | R3, R4 |
+| Machaca Apaza Edson Javier | @Edson-JMA | Dev · alcance y archivo | R5, R6 |
+| Juan Diego Quispe Mollenido | @61161913-jpg | QA y documentacion | R7, pruebas, informe |
 
 Tablero del equipo: https://github.com/users/Basilercon/projects/1 · Repositorio: https://github.com/Basilercon/nido-42964-grupoB · Presentacion: `<enlace>`
 

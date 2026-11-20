@@ -8,17 +8,17 @@ Si un acuerdo cambia, se actualiza aqui **con fecha**. Nada de borrar: se tacha 
 2. Fernandez Ramirez Patrick Michael
 3. Ticona Pacco Alex Royer
 4. Machaca Apaza Edson Javier
-5. Juan Doego Quispe Mollenido
+5. Juan Diego Quispe Mollenido
 
 ## Roles y reparto
 
 | Integrante | Rol | Requisitos o tareas | Revisa los PR de |
 |---|---|---|---|
-| Flores Castillo Basiler Emanuel | Lider (scrum) | Tablero, actas, merge a main, etiquetas v0.1/v0.5/v1.0, cap. 4 del informe | Juan Doego Quispe Mollenido |
+| Flores Castillo Basiler Emanuel | Lider (scrum) | Tablero, actas, merge a main, etiquetas v0.1/v0.5/v1.0, cap. 4 del informe | Juan Diego Quispe Mollenido |
 | Fernandez Ramirez Patrick Michael | Dev · arbol | R1 (buscar, insertar, registrar), R2 (recorridos, contar, altura, hojas) | Ticona Pacco Alex Royer |
 | Ticona Pacco Alex Royer | Dev · grafo | R3 (seguir, dejar, seguidores), R4 (mutuos, popular) | Machaca Apaza Edson Javier |
 | Machaca Apaza Edson Javier | Dev · alcance y archivo | R5 (difundir DFS, alcance, llega), R6 (guardar, cargar) | Fernandez Ramirez Patrick Michael |
-| Juan Doego Quispe Mollenido | QA y documentacion | R7 (reporte, liberar), PRUEBAS.md, revision del informe | Flores Castillo Basiler Emanuel |
+| Juan Diego Quispe Mollenido | QA y documentacion | R7 (reporte, liberar), PRUEBAS.md, revision del informe | Flores Castillo Basiler Emanuel |
 
 Todos participan en el dibujo del arbol y la matriz y en la traza a mano de las ordenes 1 a 10 (Etapa 2).
 
@@ -39,7 +39,7 @@ Todos participan en el dibujo del arbol y la matriz y en la traza a mano de las 
 
 ### Acta 1 · fecha: 19/11/2026 · medio: virtual
 - Asistentes: Flores Castillo Basiler Emanuel, Fernandez Ramirez Patrick Michael, Ticona Pacco Alex Royer,
-  Machaca Apaza Edson Javier, Juan Doego Quispe Mollenido
+  Machaca Apaza Edson Javier, Juan Diego Quispe Mollenido
 - Temas:
   - Lectura de la consigna de Nido y de la ficha del Grupo B (comunidad nido-colibri).
   - Eleccion de roles y reparto de requisitos R1 a R7.

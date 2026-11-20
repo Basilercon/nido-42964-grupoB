@@ -12,7 +12,7 @@
                 Fernandez Ramirez Patrick Michael
                 Ticona Pacco Alex Royer
                 Machaca Apaza Edson Javier
-                Juan Doego Quispe Mollenido
+                Juan Diego Quispe Mollenido
    ============================================================= */
 
 #include <iostream>
