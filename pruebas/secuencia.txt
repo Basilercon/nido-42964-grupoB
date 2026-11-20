@@ -1,0 +1,27 @@
+arbol
+usuarios
+perfil @delta
+seguidores @delta
+siguiendo @delta
+mutuos @delta
+popular
+alcance @sushi
+llega @sushi @byte
+llega @delta @iglu
+registrar @lofi
+registrar @lofi
+registrar lofi
+seguir @lofi @orbita
+seguir @sushi @lofi
+seguir @sushi @lofi
+dejar @cometa @sushi
+alcance @sushi
+seguidores @cuy
+popular
+arbol
+reporte
+guardar
+cargar
+usuarios
+reporte
+salir
