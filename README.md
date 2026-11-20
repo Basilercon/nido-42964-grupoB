@@ -18,7 +18,7 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 | Machaca Apaza Edson Javier | `<usuario>` | Dev · alcance y archivo | R5, R6 |
 | Juan Doego Quispe Mollenido | `<usuario>` | QA y documentacion | R7, pruebas, informe |
 
-Tablero del equipo: `<enlace a GitHub Projects>` · Presentacion: `<enlace>`
+Tablero del equipo: https://github.com/users/Basilercon/projects/1 · Repositorio: https://github.com/Basilercon/nido-42964-grupoB · Presentacion: `<enlace>`
 
 ## Como compilar y ejecutar
 
