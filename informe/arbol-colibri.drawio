@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="arbol" name="Arbol ABB nido-colibri">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="titulo" value="ABB de nido-colibri (orden de registro: faro 0, cometa 1, orbita 2, cactus 3, delta 4, sushi 5, byte 6, cuy 7, mango 8, iglu 9)" style="text;html=1;align=center;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="820" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faro" value="@faro&lt;br&gt;id 0" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="390" y="50" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cometa" value="@cometa&lt;br&gt;id 1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="190" y="150" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="orbita" value="@orbita&lt;br&gt;id 2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="590" y="150" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cactus" value="@cactus&lt;br&gt;id 3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="90" y="250" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="delta" value="@delta&lt;br&gt;id 4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="290" y="250" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mango" value="@mango&lt;br&gt;id 8" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="490" y="250" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sushi" value="@sushi&lt;br&gt;id 5" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="690" y="250" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="byte" value="@byte&lt;br&gt;id 6" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="30" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cuy" value="@cuy&lt;br&gt;id 7" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="230" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iglu" value="@iglu&lt;br&gt;id 9" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="430" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="izq" style="endArrow=classic;html=1;" edge="1" parent="1" source="faro" target="cometa"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="der" style="endArrow=classic;html=1;" edge="1" parent="1" source="faro" target="orbita"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="izq" style="endArrow=classic;html=1;" edge="1" parent="1" source="cometa" target="cactus"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="der" style="endArrow=classic;html=1;" edge="1" parent="1" source="cometa" target="delta"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="izq" style="endArrow=classic;html=1;" edge="1" parent="1" source="orbita" target="mango"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="der" style="endArrow=classic;html=1;" edge="1" parent="1" source="orbita" target="sushi"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="izq" style="endArrow=classic;html=1;" edge="1" parent="1" source="cactus" target="byte"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="izq" style="endArrow=classic;html=1;" edge="1" parent="1" source="delta" target="cuy"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="izq" style="endArrow=classic;html=1;" edge="1" parent="1" source="mango" target="iglu"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="nota" value="Nodos: 10 | altura: 4 | hojas (verde): @byte, @cuy, @iglu, @sushi" style="text;html=1;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="820" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
