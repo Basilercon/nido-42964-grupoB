@@ -53,7 +53,19 @@ Todos participan en el dibujo del arbol y la matriz y en la traza a mano de las 
   - Implementar R1 a R3 en ramas propias · Fernandez (R1, R2), Ticona (R3) · 20/11 22:00
   - Redactar capitulos 1 y 2 del informe con la traza de las ordenes 1 a 10 · Quispe, Machaca · 20/11 22:00
 
-### Acta 2 · fecha: ____
-- Asistentes:
+### Acta 2 · fecha: 20/11/2026 · medio: registro del lider (cierre de la Etapa 2)
+- Asistentes: Flores Castillo Basiler Emanuel
 - Temas:
-- Acuerdos:
+  - Estado de la entrega E2 (v0.5) al cierre del 20/11.
+  - Hecho: capitulos 1 y 2 del informe (`informe/capitulos-1-2.md`), arbol de la ficha en draw.io
+    (`informe/arbol-colibri.drawio` y `.png`), traza a mano de las ordenes 1 a 10 · Flores · PR de `informe-cap1-2`.
+  - Pendiente: R1 a R3 (no se subieron ramas al repositorio), PR de pruebas (`esperado.txt`, `PRUEBAS.md`),
+    foto de la matriz 10 x 10 dibujada a mano.
+  - La etiqueta v0.5 se crea con lo que esta en `main` al cierre.
+- Acuerdos (que · quien · para cuando):
+  - Subir R1 y R2 en su rama con PR · Fernandez · 21/11 12:00
+  - Subir R3 en su rama con PR · Ticona · 21/11 12:00
+  - Subir `pruebas/esperado.txt` y `PRUEBAS.md` con las lineas de R1 a R3 · Quispe · 21/11 12:00
+  - Subir la foto de la matriz 10 x 10 a `informe/` · Machaca · 21/11 12:00
+  - Revisar los PR segun la tabla de roles y unirlos a `main` · todos / Flores · 21/11 18:00
+  - Avisar al docente del estado de la E2 · Flores · 20/11 23:59
