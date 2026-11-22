@@ -75,42 +75,73 @@ void imprimirMarcados(string titulo, bool marca[]) {
 
 /* ---------- Arbol binario de busqueda (todo recursivo) ---------- */
 
+// R1a - buscar: devuelve el nodo de la cuenta u, o nullptr si no existe.
+// Caso base 1: arbol vacio (r == nullptr). Caso base 2: r->usuario == u (lo encontro).
+// Caso recursivo: si u es menor baja por la izquierda; si no, por la derecha.
 NodoUsuario* buscar(NodoUsuario *r, string u) {
-    // TODO R1a
-    return nullptr;
+    if (r == nullptr || r->usuario == u) return r;
+    if (u < r->usuario) return buscar(r->izq, u);
+    return buscar(r->der, u);
 }
 
+// R1b - insertar: cuelga el nodo nuevo en el hueco que le corresponde.
+// r va por referencia (*&) para poder cambiar el puntero del padre (o la raiz).
+// Caso base 1: hueco (nullptr). Caso base 2: cuenta repetida -> false.
 bool insertar(NodoUsuario *&r, NodoUsuario *nuevo) {
-    // TODO R1b
-    return false;
+    if (r == nullptr) { r = nuevo; return true; }
+    if (nuevo->usuario == r->usuario) return false;
+    if (nuevo->usuario < r->usuario) return insertar(r->izq, nuevo);
+    return insertar(r->der, nuevo);
 }
 
+// R1c - registrarUsuario: valida, crea el nodo con el siguiente id, lo inserta y llena porId.
 bool registrarUsuario(NodoUsuario *&raiz, string u) {
-    // TODO R1c
-    return false;
+    if (!esUsuarioValido(u)) return false;
+    if (nUsuarios == MAX) return false;
+    if (buscar(raiz, u) != nullptr) return false;
+    NodoUsuario *nodo = crearUsuario(u, nUsuarios);
+    insertar(raiz, nodo);
+    porId[nUsuarios] = nodo;
+    nUsuarios++;
+    return true;
 }
-
+// R2a - enorden: izquierda, nodo, derecha (sale alfabetico). Caso base: arbol vacio.
 void enorden(NodoUsuario *r) {
-    // TODO R2a
+    if (r == nullptr) return;
+    enorden(r->izq);
+    cout << " " << r->usuario;
+    enorden(r->der);
 }
 
+
+// R2b - preorden: nodo, izquierda, derecha. Caso base: arbol vacio.
 void preorden(NodoUsuario *r) {
-    // TODO R2b
+    if (r == nullptr) return;
+    cout << " " << r->usuario;
+    preorden(r->izq);
+    preorden(r->der);
 }
 
+// R2c - contar: arbol vacio = 0; si no, 1 + los de cada subarbol.
 int contar(NodoUsuario *r) {
-    // TODO R2c
-    return 0;
+    if (r == nullptr) return 0;
+    return 1 + contar(r->izq) + contar(r->der);
 }
 
+// R2d - altura en niveles: vacio = 0; si no, 1 + la altura del subarbol mas alto.
 int altura(NodoUsuario *r) {
-    // TODO R2d
-    return 0;
+    if (r == nullptr) return 0;
+    int a = altura(r->izq);
+    int b = altura(r->der);
+    if (a > b) return 1 + a;
+    return 1 + b;
 }
 
+// R2e - hojas: vacio = 0; nodo sin hijos = 1; si no, suma de los subarboles.
 int hojas(NodoUsuario *r) {
-    // TODO R2e
-    return 0;
+    if (r == nullptr) return 0;
+    if (r->izq == nullptr && r->der == nullptr) return 1;
+    return hojas(r->izq) + hojas(r->der);
 }
 
 /* ---------- Grafo dirigido: matriz de adyacencia sigue ---------- */
@@ -214,7 +245,11 @@ int main() {
         cout << "> " << linea << endl;
 
         if (orden == "registrar") {
-            // TODO R1d
+            // R1d - registrar @usuario
+            if (a1 == "") cout << "Uso: registrar @usuario" << endl;
+            else if (registrarUsuario(raiz, a1))
+                cout << "Registrado: " << a1 << " (id " << nUsuarios - 1 << ")" << endl;
+            else cout << "E: No se pudo registrar " << a1 << endl;
         }
         else if (orden == "perfil") {
             NodoUsuario *u = buscar(raiz, a1);
