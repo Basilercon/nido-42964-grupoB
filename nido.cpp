@@ -105,27 +105,43 @@ bool registrarUsuario(NodoUsuario *&raiz, string u) {
     nUsuarios++;
     return true;
 }
+// R2a - enorden: izquierda, nodo, derecha (sale alfabetico). Caso base: arbol vacio.
 void enorden(NodoUsuario *r) {
-    // TODO R2a
+    if (r == nullptr) return;
+    enorden(r->izq);
+    cout << " " << r->usuario;
+    enorden(r->der);
 }
 
+
+// R2b - preorden: nodo, izquierda, derecha. Caso base: arbol vacio.
 void preorden(NodoUsuario *r) {
-    // TODO R2b
+    if (r == nullptr) return;
+    cout << " " << r->usuario;
+    preorden(r->izq);
+    preorden(r->der);
 }
 
+// R2c - contar: arbol vacio = 0; si no, 1 + los de cada subarbol.
 int contar(NodoUsuario *r) {
-    // TODO R2c
-    return 0;
+    if (r == nullptr) return 0;
+    return 1 + contar(r->izq) + contar(r->der);
 }
 
+// R2d - altura en niveles: vacio = 0; si no, 1 + la altura del subarbol mas alto.
 int altura(NodoUsuario *r) {
-    // TODO R2d
-    return 0;
+    if (r == nullptr) return 0;
+    int a = altura(r->izq);
+    int b = altura(r->der);
+    if (a > b) return 1 + a;
+    return 1 + b;
 }
 
+// R2e - hojas: vacio = 0; nodo sin hijos = 1; si no, suma de los subarboles.
 int hojas(NodoUsuario *r) {
-    // TODO R2e
-    return 0;
+    if (r == nullptr) return 0;
+    if (r->izq == nullptr && r->der == nullptr) return 1;
+    return hojas(r->izq) + hojas(r->der);
 }
 
 /* ---------- Grafo dirigido: matriz de adyacencia sigue ---------- */
