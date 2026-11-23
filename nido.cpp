@@ -152,6 +152,12 @@ int contarSiguiendo(int id) {
     return k;
 }
 
+/* =========================================================================
+   MI PARTE - R3a: CONTAR SEGUIDORES
+   Para que sirve: Devuelve cuantos seguidores tiene el usuario con ese 'id'.
+   Guia rapida   : Recorre toda la COLUMNA 'id' en la matriz sigue[x][id]
+                   contando cada '1' (grado de entrada en el grafo dirigido).
+   ========================================================================= */
 // R3a - contarSeguidores: cuenta los 1 de la columna id (quienes siguen a id).
 int contarSeguidores(int id) {
     int k = 0;
@@ -284,6 +290,14 @@ int main() {
             cout << endl;
             cout << "Nodos: " << contar(raiz) << " | altura: " << altura(raiz) << " | hojas: " << hojas(raiz) << endl;
         }
+        /* =========================================================================
+           MI PARTE - R3b: COMANDO SEGUIR (@a empieza a seguir a @b)
+           Para que sirve: Crea una arista dirigida de @a hacia @b en la matriz.
+           Guia rapida   : 1) Busca @a y @b en el arbol ABB para sacar sus IDs.
+                           2) Valida errores: argumentos vacios, cuentas inexistentes,
+                              auto-seguirse (a == b) o seguimiento duplicado (== 1).
+                           3) Marca sigue[a->id][b->id] = 1 (fila = quien sigue).
+           ========================================================================= */
         else if (orden == "seguir") {
             // R3b
             NodoUsuario *a = buscar(raiz, a1);
@@ -298,6 +312,12 @@ int main() {
                 cout << a1 << " ahora sigue a " << a2 << endl;
             }
         }
+        /* =========================================================================
+           MI PARTE - R3c: COMANDO DEJAR (@a deja de seguir a @b)
+           Para que sirve: Elimina una relacion de seguimiento existente en la matriz.
+           Guia rapida   : Aplica las mismas validaciones que 'seguir', verifica que
+                           si lo siga (== 0 da error) y pone sigue[a->id][b->id] = 0.
+           ========================================================================= */
         else if (orden == "dejar") {
             // R3c
             NodoUsuario *a = buscar(raiz, a1);
@@ -321,6 +341,12 @@ int main() {
                 imprimirMarcados(u->usuario + " sigue a", marca);
             }
         }
+        /* =========================================================================
+           MI PARTE - R3d: COMANDO SEGUIDORES (quienes siguen a @u)
+           Para que sirve: Lista los nombres de todos los usuarios que siguen a @u.
+           Guia rapida   : Recorre la COLUMNA de @u (sigue[x][u->id] == 1), guarda en
+                           marca[x] = true los indices y los imprime con porId[x].
+           ========================================================================= */
         else if (orden == "seguidores") {
             // R3d - seguidores @u: marca a los x que tienen 1 en la columna de u.
             NodoUsuario *u = buscar(raiz, a1);
@@ -331,6 +357,12 @@ int main() {
                 imprimirMarcados("Seguidores de " + u->usuario, marca);
             }
         }
+        /* =========================================================================
+           MI PARTE - R4a: COMANDO MUTUOS (seguimiento reciproco con @u)
+           Para que sirve: Muestra con quienes @u tiene seguimiento de ida y vuelta.
+           Guia rapida   : Revisa que haya '1' en ambas direcciones de la matriz:
+                           sigue[u][x] == 1 (u sigue a x) && sigue[x][u] == 1 (x sigue a u).
+           ========================================================================= */
         else if (orden == "mutuos") {
             // R4a - mutuos @u: u sigue a x y x sigue a u.
             NodoUsuario *u = buscar(raiz, a1);
@@ -342,6 +374,13 @@ int main() {
                 imprimirMarcados("Mutuos de " + u->usuario, marca);
             }
         }
+        /* =========================================================================
+           MI PARTE - R4b: COMANDO POPULAR (cuenta con mas seguidores)
+           Para que sirve: Encuentra y muestra la cuenta con mayor cantidad de seguidores.
+           Guia rapida   : Empieza asumiendo mejor = 0 y compara contarSeguidores(x).
+                           Usa '>' estricto para que en empate gane el menor ID
+                           (la cuenta registrada primero).
+           ========================================================================= */
         else if (orden == "popular") {
             // R4b: con > gana el menor id si hay empate
             if (nUsuarios == 0) cout << "(sin cuentas)" << endl;
