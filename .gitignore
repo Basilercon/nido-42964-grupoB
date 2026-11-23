@@ -4,3 +4,5 @@
 *.layout
 nido
 salida-ci.txt
+# archivo que crea guardar al probar en Dev-C++ (el oficial esta en pruebas/nido.txt)
+/nido.txt
