@@ -2,7 +2,6 @@
 
 **Grupo B · comunidad `nido-colibri` · NRC 42964**
 
-> Borrador en Markdown para pasar a la plantilla `EDD-S15-EvalU4-Plantilla-Informe-NRC42964.docx`. Los diagramas del 2.1 se pueden pasar a limpio a mano o pegar el render de Mermaid.
 
 ---
 
