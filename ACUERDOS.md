@@ -69,3 +69,19 @@ Todos participan en el dibujo del arbol y la matriz y en la traza a mano de las 
   - Subir la foto de la matriz 10 x 10 a `informe/` · Machaca · 21/11 12:00
   - Revisar los PR segun la tabla de roles y unirlos a `main` · todos / Flores · 21/11 18:00
   - Avisar al docente del estado de la E2 · Flores · 20/11 23:59
+
+### Acta 3 · fecha: 22/11/2026 · medio: registro del lider (cierre de la Etapa 3)
+- Asistentes: Flores Castillo Basiler Emanuel
+- Temas:
+  - R1 y R2 entregados por Fernandez (PR #11, 21/11) y revisados por Flores.
+  - R3 y R4 entregados por Ticona (PR #12, 22/11 20:52), unidos sin revision. En la revision posterior
+    se encontraron diferencias con el Anexo en `seguir`, `dejar` y `popular`; las corrigio Flores en el PR #13 (22/11 22:24).
+  - Al 22/11 23:00 no habia ramas de R5, R6 ni R7. Machaca no habia aceptado la invitacion al repositorio
+    (pendiente desde el 20/11). Machaca y Quispe no respondieron por WhatsApp.
+  - Por el plazo de la E3 (23/11 07:00), Flores implemento R5, R6 y R7 (PR #14, 22/11 23:30) y completo
+    `pruebas/esperado.txt`, `pruebas/salida.txt`, `pruebas/nido.txt` y `PRUEBAS.md`.
+  - Flores hizo los capitulos 3 y 4 del informe y la presentacion.
+- Acuerdos (que · quien · para cuando):
+  - Avisar al docente que R5, R6, R7 y las pruebas no los hicieron sus responsables · Flores · 23/11 07:00
+  - Mantener a Machaca y Quispe en el informe con su rol y su aporte real · Flores · 23/11 07:00
+  - Etiqueta v1.0, ZIP y entrega en el aula virtual · Flores · 23/11 07:00

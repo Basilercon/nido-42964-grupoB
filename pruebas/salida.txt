@@ -1,0 +1,59 @@
+Nido - comunidad nido-colibri (10 cuentas). Escribe ayuda.
+nido@nido-colibri:~$ > arbol
+Preorden: @faro @cometa @cactus @byte @delta @cuy @orbita @mango @iglu @sushi
+Nodos: 10 | altura: 4 | hojas: 4
+nido@nido-colibri:~$ > usuarios
+Usuarios (enorden): @byte @cactus @cometa @cuy @delta @faro @iglu @mango @orbita @sushi
+nido@nido-colibri:~$ > perfil @delta
+@delta | id 4 | seguidores 2 | siguiendo 2
+nido@nido-colibri:~$ > seguidores @delta
+Seguidores de @delta (2): @faro @cometa
+nido@nido-colibri:~$ > siguiendo @delta
+@delta sigue a (2): @cometa @byte
+nido@nido-colibri:~$ > mutuos @delta
+Mutuos de @delta (1): @cometa
+nido@nido-colibri:~$ > popular
+Popular: @cometa | seguidores: 5
+nido@nido-colibri:~$ > alcance @sushi
+Alcance de @sushi: @cometa @faro @cactus @byte @delta @cuy @mango | alcanzados: 7
+nido@nido-colibri:~$ > llega @sushi @byte
+Un post de @sushi llega a @byte: si
+nido@nido-colibri:~$ > llega @delta @iglu
+Un post de @delta llega a @iglu: no
+nido@nido-colibri:~$ > registrar @lofi
+Registrado: @lofi (id 10)
+nido@nido-colibri:~$ > registrar @lofi
+E: No se pudo registrar @lofi
+nido@nido-colibri:~$ > registrar lofi
+E: No se pudo registrar lofi
+nido@nido-colibri:~$ > seguir @lofi @orbita
+@lofi ahora sigue a @orbita
+nido@nido-colibri:~$ > seguir @sushi @lofi
+@sushi ahora sigue a @lofi
+nido@nido-colibri:~$ > seguir @sushi @lofi
+E: @sushi ya sigue a @lofi
+nido@nido-colibri:~$ > dejar @cometa @sushi
+@cometa dejo de seguir a @sushi
+nido@nido-colibri:~$ > alcance @sushi
+Alcance de @sushi: @cuy @mango | alcanzados: 2
+nido@nido-colibri:~$ > seguidores @cuy
+Seguidores de @cuy (0): (nadie)
+nido@nido-colibri:~$ > popular
+Popular: @cometa | seguidores: 5
+nido@nido-colibri:~$ > arbol
+Preorden: @faro @cometa @cactus @byte @delta @cuy @orbita @mango @iglu @lofi @sushi
+Nodos: 11 | altura: 5 | hojas: 4
+nido@nido-colibri:~$ > reporte
+Cuentas: 11 | seguimientos: 17 | pares mutuos: 1
+Arbol: altura 5 | hojas 4
+nido@nido-colibri:~$ > guardar
+Guardado: 11 cuentas y 17 seguimientos en nido.txt
+nido@nido-colibri:~$ > cargar
+Cargado: 11 cuentas y 17 seguimientos | altura 5
+nido@nido-colibri:~$ > usuarios
+Usuarios (enorden): @byte @cactus @cometa @cuy @delta @faro @iglu @lofi @mango @orbita @sushi
+nido@nido-colibri:~$ > reporte
+Cuentas: 11 | seguimientos: 17 | pares mutuos: 1
+Arbol: altura 5 | hojas 4
+nido@nido-colibri:~$ > salir
+Nodos liberados: 11. Hasta pronto.

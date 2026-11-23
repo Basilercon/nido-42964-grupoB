@@ -1,1 +1,28 @@
+Preorden: @faro @cometa @cactus @byte @delta @cuy @orbita @mango @iglu @sushi
+Nodos: 10 | altura: 4 | hojas: 4
+Usuarios (enorden): @byte @cactus @cometa @cuy @delta @faro @iglu @mango @orbita @sushi
+@delta | id 4 | seguidores 2 | siguiendo 2
 Seguidores de @delta (2): @faro @cometa
+@delta sigue a (2): @cometa @byte
+Mutuos de @delta (1): @cometa
+Popular: @cometa | seguidores: 5
+Alcance de @sushi: @cometa @faro @cactus @byte @delta @cuy @mango | alcanzados: 7
+Un post de @sushi llega a @byte: si
+Un post de @delta llega a @iglu: no
+Registrado: @lofi (id 10)
+E: No se pudo registrar @lofi
+E: No se pudo registrar lofi
+@lofi ahora sigue a @orbita
+@sushi ahora sigue a @lofi
+E: @sushi ya sigue a @lofi
+@cometa dejo de seguir a @sushi
+Alcance de @sushi: @cuy @mango | alcanzados: 2
+Seguidores de @cuy (0): (nadie)
+Preorden: @faro @cometa @cactus @byte @delta @cuy @orbita @mango @iglu @lofi @sushi
+Nodos: 11 | altura: 5 | hojas: 4
+Cuentas: 11 | seguimientos: 17 | pares mutuos: 1
+Arbol: altura 5 | hojas 4
+Guardado: 11 cuentas y 17 seguimientos en nido.txt
+Cargado: 11 cuentas y 17 seguimientos | altura 5
+Usuarios (enorden): @byte @cactus @cometa @cuy @delta @faro @iglu @lofi @mango @orbita @sushi
+Nodos liberados: 11. Hasta pronto.

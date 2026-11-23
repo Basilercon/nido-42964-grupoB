@@ -18,7 +18,7 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 | Machaca Apaza Edson Javier | @Edson-JMA | Dev · alcance y archivo | R5, R6 |
 | Juan Diego Quispe Mollenido | @61161913-jpg | QA y documentacion | R7, pruebas, informe |
 
-Tablero del equipo: https://github.com/users/Basilercon/projects/1 · Repositorio: https://github.com/Basilercon/nido-42964-grupoB · Presentacion: `<enlace>`
+Tablero del equipo: https://github.com/users/Basilercon/projects/1 · Repositorio: https://github.com/Basilercon/nido-42964-grupoB · Presentacion: [GRUPOB_Nido.pdf](GRUPOB_Nido.pdf)
 
 ## Como compilar y ejecutar
 
