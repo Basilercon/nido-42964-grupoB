@@ -85,3 +85,6 @@ Todos participan en el dibujo del arbol y la matriz y en la traza a mano de las 
   - Avisar al docente que R5, R6, R7 y las pruebas no los hicieron sus responsables · Flores · 23/11 07:00
   - Mantener a Machaca y Quispe en el informe con su rol y su aporte real · Flores · 23/11 07:00
   - Etiqueta v1.0, ZIP y entrega en el aula virtual · Flores · 23/11 07:00
+- Actualizacion 23/11 00:02: Quispe subio una version del informe (`informe/INFORME DE GRUPOB_NRC42964.docx`,
+  commit d3079bf). Se entrega la version del lider (`GRUPOB_NRC42964_Evaluacion02_Con2.pdf`) porque ya incluia
+  las imagenes, las capturas y los diagramas; la version de Quispe queda en el repositorio como su aporte.
