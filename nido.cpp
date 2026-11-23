@@ -271,23 +271,28 @@ int main() {
             cout << "Nodos: " << contar(raiz) << " | altura: " << altura(raiz) << " | hojas: " << hojas(raiz) << endl;
         }
         else if (orden == "seguir") {
-            // R3b - seguir @a @b: pone 1 en sigue[a][b].
+            // R3b
             NodoUsuario *a = buscar(raiz, a1);
             NodoUsuario *b = buscar(raiz, a2);
-            if (a == nullptr) cout << "E: No existe " << a1 << endl;
+            if (a1 == "" || a2 == "") cout << "Uso: seguir @a @b" << endl;
+            else if (a == nullptr) cout << "E: No existe " << a1 << endl;
             else if (b == nullptr) cout << "E: No existe " << a2 << endl;
             else if (a == b) cout << "E: Una cuenta no puede seguirse a si misma" << endl;
+            else if (sigue[a->id][b->id] == 1) cout << "E: " << a1 << " ya sigue a " << a2 << endl;
             else {
                 sigue[a->id][b->id] = 1;
-              cout << a1 << " sigue a " << a2 << endl; 
+                cout << a1 << " ahora sigue a " << a2 << endl;
             }
         }
         else if (orden == "dejar") {
-            // R3c - dejar @a @b: pone 0 en sigue[a][b].
+            // R3c
             NodoUsuario *a = buscar(raiz, a1);
             NodoUsuario *b = buscar(raiz, a2);
-            if (a == nullptr) cout << "E: No existe " << a1 << endl;
+            if (a1 == "" || a2 == "") cout << "Uso: dejar @a @b" << endl;
+            else if (a == nullptr) cout << "E: No existe " << a1 << endl;
             else if (b == nullptr) cout << "E: No existe " << a2 << endl;
+            else if (a == b) cout << "E: Una cuenta no puede seguirse a si misma" << endl;
+            else if (sigue[a->id][b->id] == 0) cout << "E: " << a1 << " no sigue a " << a2 << endl;
             else {
                 sigue[a->id][b->id] = 0;
                 cout << a1 << " dejo de seguir a " << a2 << endl;
@@ -324,11 +329,14 @@ int main() {
             }
         }
         else if (orden == "popular") {
-            // R4b - popular: la cuenta con mas seguidores.
-            int mejor = 0;
-            for (int x = 1; x < nUsuarios; x++)
-                if (contarSeguidores(x) > contarSeguidores(mejor)) mejor = x;
-            cout << "Popular: " << porId[mejor]->usuario << " con " << contarSeguidores(mejor) << " seguidores" << endl;
+            // R4b: con > gana el menor id si hay empate
+            if (nUsuarios == 0) cout << "(sin cuentas)" << endl;
+            else {
+                int mejor = 0;
+                for (int x = 1; x < nUsuarios; x++)
+                    if (contarSeguidores(x) > contarSeguidores(mejor)) mejor = x;
+                cout << "Popular: " << porId[mejor]->usuario << " | seguidores: " << contarSeguidores(mejor) << endl;
+            }
         }
         else if (orden == "alcance") {
             // TODO R5b
