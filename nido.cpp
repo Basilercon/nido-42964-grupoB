@@ -276,9 +276,10 @@ int main() {
             NodoUsuario *b = buscar(raiz, a2);
             if (a == nullptr) cout << "E: No existe " << a1 << endl;
             else if (b == nullptr) cout << "E: No existe " << a2 << endl;
+            else if (a == b) cout << "E: Una cuenta no puede seguirse a si misma" << endl;
             else {
                 sigue[a->id][b->id] = 1;
-                cout << a1 << " sigue a " << a2 << endl;
+              cout << a1 << " sigue a " << a2 << endl; 
             }
         }
         else if (orden == "dejar") {
