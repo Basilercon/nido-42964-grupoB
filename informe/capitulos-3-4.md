@@ -2,7 +2,7 @@
 
 **Grupo B · comunidad `nido-colibri` · NRC 42964**
 
-> Borrador para pasar a la plantilla. Lo marcado con **[COMPLETAR]** depende de R5, R6 y R7 o de la ejecución final. Actualizado con el estado del repositorio al 22/11/2026, 22:00.
+> Borrador para pasar a la plantilla. Lo marcado con **[COMPLETAR]** son capturas o reflexiones del equipo. Actualizado con el estado del repositorio al 22/11/2026, 23:40.
 
 ---
 
@@ -118,11 +118,53 @@ for (int x = 0; x < nUsuarios; x++)
 
 En `popular` se compara con `>` y no con `>=`: así, en un empate se queda la cuenta de menor id (regla 7).
 
-**R5 · Alcance** — Machaca Apaza Edson Javier · **[COMPLETAR: commit y fragmento de `difundir`]**
+**R5 · Alcance** — asignado a Machaca Apaza Edson Javier; reasignado a Flores Castillo Basiler Emanuel (acta 3) · commit [`00d4448`](https://github.com/Basilercon/nido-42964-grupoB/commit/00d4448) · PR #14
 
-**R6 · Persistencia** — Machaca Apaza Edson Javier · **[COMPLETAR: commit y fragmento de `guardarPreorden` y `cargar`]**
+```cpp
+void difundir(int v, bool visto[], bool imprimir) {
+    visto[v] = true;
+    for (int x = 0; x < nUsuarios; x++) {
+        if (sigue[x][v] == 1 && !visto[x]) {      // x sigue a v y aun no se visito
+            if (imprimir) cout << " " << porId[x]->usuario;
+            difundir(x, visto, imprimir);          // caso recursivo
+        }
+    }
+}   // caso base: ningun seguidor de v queda sin visitar
+```
 
-**R7 · Cierre** — Juan Diego Quispe Mollenido · **[COMPLETAR: commit y fragmento de `liberar`]**
+El arreglo `visto` evita repetir cuentas: sin él, `@cometa` y `@sushi`, que se siguen mutuamente, harían que el DFS no terminara.
+
+**R6 · Persistencia** — asignado a Machaca Apaza Edson Javier; reasignado a Flores Castillo Basiler Emanuel (acta 3) · commit [`00d4448`](https://github.com/Basilercon/nido-42964-grupoB/commit/00d4448) · PR #14
+
+```cpp
+// guardar: una linea U por cuenta, en preorden
+void guardarPreorden(NodoUsuario *r, ofstream &f) {
+    if (r == nullptr) return;                      // caso base
+    f << "U " << r->usuario << " " << r->id << endl;
+    guardarPreorden(r->izq, f);
+    guardarPreorden(r->der, f);
+}
+
+// cargar: cada linea U se inserta con su mismo id
+if (tipo == "U") {
+    f >> usuario >> id;
+    NodoUsuario *nodo = crearUsuario(usuario, id);
+    insertar(raiz, nodo);
+    porId[id] = nodo;
+    if (id + 1 > nUsuarios) nUsuarios = id + 1;    // los ids llegan en preorden, no en orden
+}
+```
+
+**R7 · Cierre** — asignado a Juan Diego Quispe Mollenido; reasignado a Flores Castillo Basiler Emanuel (acta 3) · commit [`00d4448`](https://github.com/Basilercon/nido-42964-grupoB/commit/00d4448) · PR #14
+
+```cpp
+int liberar(NodoUsuario *r) {
+    if (r == nullptr) return 0;                    // caso base
+    int k = liberar(r->izq) + liberar(r->der);     // primero los hijos (postorden)
+    delete r;                                      // despues el nodo
+    return k + 1;
+}
+```
 
 ### 3.2 Las funciones recursivas
 
@@ -153,11 +195,12 @@ En `popular` se compara con `>` y no con `>=`: así, en un empate se queda la cu
 
 ### 3.4 Capturas de validación y pruebas
 
-- Salida completa de la secuencia oficial: [`pruebas/salida.txt`](../pruebas/salida.txt) **[COMPLETAR cuando estén R5 a R7: `nido.exe < pruebas\secuencia.txt > pruebas\salida.txt`]**
-- Archivo generado con `guardar`: [`pruebas/nido.txt`](../pruebas/nido.txt) **[COMPLETAR]**
-- Tabla de pruebas con esperado y obtenido: [`PRUEBAS.md`](../PRUEBAS.md) (P01 a P12 al 22/11).
+- Salida completa de la secuencia oficial (`nido.exe < pruebas\secuencia.txt > pruebas\salida.txt`): [`pruebas/salida.txt`](../pruebas/salida.txt)
+- Archivo generado con `guardar` (11 líneas U y 17 líneas S): [`pruebas/nido.txt`](../pruebas/nido.txt)
+- Tabla de pruebas con esperado y obtenido, incluidas las entradas inválidas: [`PRUEBAS.md`](../PRUEBAS.md) (P01 a P22).
+- GitHub Actions compara la salida con las 28 líneas de [`pruebas/esperado.txt`](../pruebas/esperado.txt) en cada push: verde desde el commit `2dea6b5`.
 
-**Comparación con la traza a mano (capítulo 2.4)** — estado al 22/11, 22:00:
+**Comparación con la traza a mano (capítulo 2.4)** — con la versión final de `main`:
 
 | # | Orden | Traza a mano | Programa | ¿Coincide? |
 |---|---|---|---|---|
@@ -168,9 +211,11 @@ En `popular` se compara con `>` y no con `>=`: así, en un empate se queda la cu
 | 5 | `siguiendo @delta` | `@cometa @byte` | Igual | Sí |
 | 6 | `mutuos @delta` | `Mutuos de @delta (1): @cometa` | Igual | Sí |
 | 7 | `popular` | `Popular: @cometa \| seguidores: 5` | Igual (desde el PR #13) | Sí |
-| 8 | `alcance @sushi` | `@cometa @faro @cactus @byte @delta @cuy @mango \| alcanzados: 7` | **[COMPLETAR: R5]** | |
-| 9 | `llega @sushi @byte` | `si` | **[COMPLETAR: R5]** | |
-| 10 | `llega @delta @iglu` | `no` | **[COMPLETAR: R5]** | |
+| 8 | `alcance @sushi` | `@cometa @faro @cactus @byte @delta @cuy @mango \| alcanzados: 7` | Igual | Sí |
+| 9 | `llega @sushi @byte` | `si` | `Un post de @sushi llega a @byte: si` | Sí |
+| 10 | `llega @delta @iglu` | `no` | `Un post de @delta llega a @iglu: no` | Sí |
+
+Las órdenes 11 a 27 también coinciden: el segundo alcance de `@sushi` da `@cuy @mango | alcanzados: 2`, el reporte da `Cuentas: 11 | seguimientos: 17 | pares mutuos: 1` y `Arbol: altura 5 | hojas 4`, `cargar` da `11 cuentas y 17 seguimientos | altura 5` y `salir` da `Nodos liberados: 11`.
 
 Diferencias encontradas en la revisión del 22/11 (código unido en el PR #12 sin revisión): `seguir` no rechazaba un seguimiento repetido ni imprimía `ahora sigue a`; `dejar` no validaba que existiera el seguimiento ni que las cuentas fueran distintas; `seguir` y `dejar` sin dos cuentas no mostraban `Uso:`; `popular` no usaba el formato del Anexo. Se corrigieron en el PR #13 (rama `fix-r3-r4`, 22/11). Después de la corrección, las órdenes 14, 15, 16, 17 y 20 de la secuencia oficial coinciden con la traza.
 
@@ -241,9 +286,9 @@ Diferencias encontradas en la revisión del 22/11 (código unido en el PR #12 si
 | #2 | R2 · Directorio | Cerrado por el PR #11 |
 | #3 | R3 · Seguir | Cerrado (PR #12) |
 | #4 | R4 · Comunidad | Cerrado (PR #12) |
-| #5 | R5 · Alcance | Abierto |
-| #6 | R6 · Persistencia | Abierto |
-| #7 | R7 · Cierre | Abierto |
+| #5 | R5 · Alcance | Hecho (PR #14) **[cerrar el Issue]** |
+| #6 | R6 · Persistencia | Hecho (PR #14) **[cerrar el Issue]** |
+| #7 | R7 · Cierre | Hecho (PR #14) **[cerrar el Issue]** |
 | #8 | Informe | Abierto |
 | #9 | Presentación | Abierto |
 
@@ -251,15 +296,15 @@ Diferencias encontradas en la revisión del 22/11 (código unido en el PR #12 si
 
 **[COMPLETAR]** Captura de *Insights → Contributors* y de la lista de pull requests.
 
-Datos tomados del historial de `main` al 22/11, 22:00 (sin contar los commits de merge):
+Datos tomados del historial de `main` al 22/11, 23:40 (sin contar los commits de merge):
 
 | Integrante | Commits | Pull requests abiertos | Revisiones hechas | Espacios TODO que escribió |
 |---|---|---|---|---|
-| Flores Castillo Basiler Emanuel (Basilercon) | 8 | #10, #13 | #11 (aprobado) | Corrección de R3b, R3c y R4b (PR #13); líder: informe, actas, merges, etiquetas |
+| Flores Castillo Basiler Emanuel (Basilercon) | 12 | #10, #13, #14 | #11 (aprobado) | Corrección de R3b, R3c y R4b (PR #13); R5a a R7b (PR #14, reasignados); pruebas finales; líder: informe, actas, presentación, merges, etiquetas |
 | Fernandez Ramirez Patrick Michael (72672623-cmyk) | 4 | #11 | — | R1a, R1b, R1c, R1d, R2a, R2b, R2c, R2d, R2e |
 | Ticona Pacco Alex Royer (Royer20061) | 5 | #12 | — | R3a, R3b, R3c, R3d, R4a, R4b |
-| Machaca Apaza Edson Javier (Edson-JMA) | 0 | — | — | **[COMPLETAR: R5a, R5b, R5c, R6a, R6b, R6c]** |
-| Juan Diego Quispe Mollenido (61161913-jpg) | 0 | — | — | **[COMPLETAR: R7a, R7b]** |
+| Machaca Apaza Edson Javier (Edson-JMA) | 0 | — | — | R5 y R6 asignados; reasignados al líder (ver acta 3) |
+| Juan Diego Quispe Mollenido (61161913-jpg) | 0 | — | — | R7 y pruebas asignados; reasignados al líder (ver acta 3) |
 
 | PR | Rama | Autor | Revisó | Unido por | Fecha de unión |
 |---|---|---|---|---|---|
@@ -267,6 +312,7 @@ Datos tomados del historial de `main` al 22/11, 22:00 (sin contar los commits de
 | #11 | `r1-registro` | 72672623-cmyk | Basilercon (aprobado) | Basilercon | 22/11, 01:15 |
 | #12 | `r3-r4-grafo` | Royer20061 | — (sin revisión) | Royer20061 | 22/11, 20:55 |
 | #13 | `fix-r3-r4` | Basilercon | — | Basilercon | 22/11, 22:24 |
+| #14 | `r5-r6-r7` | Basilercon | — | Basilercon | 22/11, 23:30 |
 
 ### 4.3 Plan de trabajo, roles y cronograma
 
@@ -278,9 +324,9 @@ Datos tomados del historial de `main` al 22/11, 22:00 (sin contar los commits de
 | Etiqueta v0.5 | Flores | 20/11 23:59 | 20/11 23:23 | Hecho (sin R1 a R3) |
 | R1 y R2 | Fernandez | 20/11 22:00 → 21/11 12:00 (acta 2) | 21/11 23:40 (PR #11) | Hecho |
 | R3 y R4 | Ticona | 20/11 22:00 → 21/11 12:00 (acta 2) | 22/11 20:52 (PR #12) | Hecho; corregido por Flores en el PR #13 (22/11 22:24) |
-| R5 y R6 | Machaca | **[COMPLETAR]** | | |
-| R7 y pruebas finales | Quispe | **[COMPLETAR]** | | |
-| Capítulo 3 y presentación | Flores | 22/11 | | En curso |
+| R5 y R6 | Machaca → reasignado a Flores | 22/11 | 22/11 23:30 (PR #14) | Hecho |
+| R7 y pruebas finales | Quispe → reasignado a Flores | 22/11 | 22/11 23:37 (commit `2dea6b5`) | Hecho |
+| Capítulo 3 y presentación | Flores | 22/11 | 22/11 23:18 (presentación) | Hecho |
 | Capítulo 4, acta 3, v1.0 y ZIP | Flores | 23/11 07:00 | | |
 
 ### 4.4 Actas de reuniones
@@ -289,9 +335,9 @@ Las actas completas están en [`ACUERDOS.md`](../ACUERDOS.md).
 
 - **Acta 1 (19/11, virtual, los cinco integrantes).** Se eligieron los roles y se repartieron R1 a R7. El líder creó el repositorio, el tablero y la v0.1; se acordó entregar R1 a R3 y los capítulos 1 y 2 el 20/11 a las 22:00.
 - **Acta 2 (20/11, registro del líder).** Al cierre de la E2 no había ramas con R1 a R3. El líder redactó los capítulos 1 y 2 y entregó la v0.5 con lo que había en `main`. Se movió el plazo de R1 a R3 al 21/11 y se acordó avisar al docente del estado de la E2.
-- **Acta 3 (**[COMPLETAR]**).**
+- **Acta 3 (22/11, registro del líder).** R1 y R2 se entregaron y revisaron; R3 y R4 se unieron sin revisión y el líder corrigió `seguir`, `dejar` y `popular` (PR #13). R5, R6, R7 y las pruebas se reasignaron al líder por el plazo de la E3, porque sus responsables no respondieron; se acordó avisar al docente y mantener a todos en el informe con su aporte real.
 
-**Acuerdos que cambiaron:** el plazo de R1 a R3 pasó del 20/11 22:00 al 21/11 12:00 porque nadie subió código antes del cierre de la E2. Los capítulos 1 y 2, asignados a Quispe y Machaca, los redactó el líder para no dejar la v0.5 sin informe.
+**Acuerdos que cambiaron:** el plazo de R1 a R3 pasó del 20/11 22:00 al 21/11 12:00 porque nadie subió código antes del cierre de la E2. Los capítulos 1 y 2, asignados a Quispe y Machaca, los redactó el líder para no dejar la v0.5 sin informe. R5, R6, R7 y las pruebas finales se reasignaron al líder el 22/11 (acta 3).
 
 ### 4.5 Reflexión del equipo
 
