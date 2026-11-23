@@ -9,3 +9,4 @@ Si no usaron IA, escriban: **No usamos IA.**
 Recuerden: se permite preguntar conceptos y practicar con ejemplos que NO son de Nido.
 No se permite pedir que escriba, complete o reescriba el codigo, el informe o las respuestas,
 ni pegar la consigna, la ficha o el kit.
+| 22/11/26 | Ticona Pacco Alex Royer | Claude | Como implementar R3 y R4 con la matriz de adyacencia | Que la fila es a quien sigo y la columna quien me sigue; mutuos = ida y vuelta; popular = buscar el maximo | Probando seguir, dejar, seguidores, mutuos y popular con la ficha y en GitHub Actions |
